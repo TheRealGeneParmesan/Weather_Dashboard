@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Weather Dashboard</title>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
+      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+      crossorigin="anonymous"
+    />
+    />
+    <script
+      type="text/javascript"
+      src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"
+    ></script>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div
+      class="mt-2 text-center p-2"
+      style="background-color: rgb(46, 0, 139); color: white"
+    >
+      <h1>Weather Dashboard</h1>
+    </div>
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-4">
+          <h2>Search for a City:</h2>
+
+          <!--Here we create the text box for capturing the search city Name-->
+
+          <div class="input-group mb-3">
+            <input type="text" class="form-control" id="search-city" />
+            <div class="input-group-append"></div>
+            <div>
+              <button class="btn" id="search-btn">Search</button>
+            </div>
+          </div>
+
+          <ul class="list-group"></ul>
+        </div>
+        <div class="col-sm-8">
+          <div class="row ml-4 border border">
+            <div class="col-sm-12" id="current-weather">
+              <h3 class="city-name mb-1 mt-2 bolder" id="selected-city"></h3>
+              <p>Temperature:<span class="current" id="temp"></span></p>
+              <p>Wind:<span class="current" id="wind"></span></p>
+              <p>Humidity:<span class="current" id="humidity"></span></p>
+            </div>
+          </div>
+
+          <!--Row for future data to be dumped here-->
+          <div class="col-sm-12" id="f-weather">
+            <h3>5-Day Forecast:</h3>
+            <div class="row text-dark">
+              <div
+                class="col-sm-2 bg-dark text-white ml-2 mb-3 p-2 mt-2 rounded"
+              >
+                <p id="futDate0"></p>
+                <p id="futImg0"></p>
+                <p>Temp:<span id="futTemp0"></span></p>
+                <p>Wind:<span id="futWind0"></span></p>
+                <p>Humidity:<span id="fHumidity0"></span></p>
+              </div>
+              <div
+                class="col-sm-2 bg-dark text-white ml-2 mb-3 p-2 mt-2 rounded"
+              >
+                <p id="futDate1"></p>
+                <p id="futImg1"></p>
+                <p>Temp:<span id="futTemp1"></span></p>
+                <p>Wind:<span id="futWind1"></span></p>
+                <p>Humidity:<span id="futHumidity1"></span></p>
+              </div>
+              <div
+                class="col-sm-2 bg-dark text-white ml-2 mb-3 p-2 mt-2 rounded"
+              >
+                <p id="futDate2"></p>
+                <p id="futImg2"></p>
+                <p>Temp:<span id="futTemp2"></span></p>
+                <p>Wind:<span id="futWind2"></span></p>
+                <p>Humidity:<span id="futHumidity2"></span></p>
+              </div>
+              <div
+                class="col-sm-2 bg-dark text-white ml-2 mb-3 p-2 mt-2 rounded"
+              >
+                <p id="futDate3"></p>
+                <p id="futImg3"></p>
+                <p>Temp:<span id="futTemp3"></span></p>
+                <p>Wind:<span id="futWind3"></span></p>
+                <p>Humidity:<span id="futHumidity3"></span></p>
+              </div>
+              <div
+                class="col-sm-2 bg-dark text-white ml-2 mb-3 p-2 mt-2 rounded"
+              >
+                <p id="futDate4"></p>
+                <p id="futImg4"></p>
+                <p>Temp:<span id="futTemp4" span></span></p>
+                <p>Wind:<span id="futWind4"></span></p>
+                <p>Humidity:<span id="futHumidity4"></span></p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0/js/bootstrap.bundle.min.js"></script>
+    <script src="script.js"></script>
+  </body>
+</html>

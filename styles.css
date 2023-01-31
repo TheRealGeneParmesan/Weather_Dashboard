@@ -1,0 +1,26 @@
+
+*{
+    box-sizing: border-box;
+    
+}
+
+h1 {
+    font-weight: bold
+}
+
+h2 {
+    padding-top: 20px
+}
+body {
+    
+    font-size: 18px;
+    font-family: sans-serif;
+    
+}
+
+h3{
+    font-family: sans-serif;
+    font-weight: bold;
+    padding-top: 20px;
+}
+
