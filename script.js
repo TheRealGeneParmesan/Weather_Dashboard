@@ -62,12 +62,13 @@ function futureWeather(cityid) {
             var futureTempinFar = (((futureTemp - 273.15) * 9 / 5 + 32))
             var fTempRound = Math.round(futureTempinFar * 100 / 100)
             var futureWind = response.list[((i + 1) * 8) - 1].wind.speed
+            var futWindMPH = +((2.23694 * futureWind).toFixed(2));
             var futureHumid = response.list[((i + 1) * 8) - 1].main.humidity
             var futureIcon = response.list[((i + 1) * 8) - 1].weather[0].icon
             var futIconURL = "https://openweathermap.org/img/wn/" + futureIcon + ".png";
 
             $("#futTemp" + i).html(fTempRound + " degrees" + " F")
-            $("#futWind" + i).html(futureWind)
+            $("#futWind" + i).html(futWindMPH + "mph")
             $("#futHumidity" + i).html(futureHumid + " %")
             $("#futIcon" + i).html("<img src =" + futIconURL + ">")
 
