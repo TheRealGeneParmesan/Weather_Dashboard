@@ -5,7 +5,7 @@ var searchButton = document.querySelector("#search-btn");
 var selectedCity = document.querySelector("#selected-city");
 var currentTemp = document.querySelector("#temp");
 var currentWind = document.querySelector("#wind");
-var currentHumidty = document.querySelector("#humidity");
+var currentHumidity = document.querySelector("#humidity");
 
 function currentWeather(city) {
     // Use this URL to get data from the openweather map server. use ajax get method to request data from the server with an HTTP get request. 
@@ -14,7 +14,7 @@ function currentWeather(city) {
     console.log(queryURL)
     $.ajax({
         url: queryURL,
-        method: "GET",
+        method: "get",
     }).then(function (response) {
         console.log(response)
 
@@ -28,13 +28,37 @@ function currentWeather(city) {
 
         // Gives us the humidity wich we also get from the response under main and adds a percentage
 
-        $(currentHumidty).html(response.main.humidity + "%");
+        $(currentHumidity).html(response.main.humidity + "%");
 
         //Converts wind speed from meters to seconds. Formula provided by openweather 
 
         var windSpeed = response.wind.speed;
-        const windInMiles = +((2.23694 * windSpeed).toFixed(2));
+        var windInMiles = +((2.23694 * windSpeed).toFixed(2));
         $(currentWind).html(windInMiles + " MPH");
+    })
+}
+
+function futureWeather(cityid) {
+    var forecastURL = "api.openweathermap.org/data/2.5/forecast?q=" + cityid + "&appid=" + APIKey
+    console.log(forecastURL)
+    $.ajax({
+        url: forecastURL,
+        method: "get",
+    }).then(function (response) {
+        console.log(response)
+
+        for (i = 0; i < 5; i++) {
+            var futureTemp = (response.main.temp - 273.15) * 9 / 5 + 32;
+            var futureWind = response.wind.speed
+            var futureHumid = $(currentHumidity).html(response.main.humidity + "%");
+            var futureWMPH = +((2.23694 * futureWind).toFixed(2));
+
+            $("#futTemp" + i).html(futureTemp)
+            $("#futWind" + i).html(futureWMPH)
+            $("#futHumidity" + i).html(futureHumid + "%")
+
+        }
+
     })
 }
 
