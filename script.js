@@ -6,6 +6,7 @@ var selectedCity = document.querySelector("#selected-city")
 var currentTemp = document.querySelector("#temp")
 var currentWind = document.querySelector("#wind")
 var currentHumidity = document.querySelector("#humidity")
+var pastSearches = []
 
 function currentWeather(city) {
     // Use this URL to get data from the openweather map server. use ajax get method to request data from the server with an HTTP get request. 
@@ -45,8 +46,6 @@ function currentWeather(city) {
 
         $(".weather-icon").attr("src", iconURL)
 
-        response.log(iconURL)
-
     })
 }
 
@@ -60,20 +59,23 @@ function futureWeather(cityid) {
         console.log(response)
 
         for (i = 0; i < 5; i++) {
-            var futureTemp = response.list[((i + 1) * 8) - 1].main.temp;
+            var futureTemp = response.list[((i + 1) * 8) - 1].main.temp
             var futureTempinFar = (((futureTemp - 273.15) * 9 / 5 + 32))
             var fTempRound = Math.round(futureTempinFar * 100 / 100)
             var futureWind = response.list[((i + 1) * 8) - 1].wind.speed
             var futureHumid = response.list[((i + 1) * 8) - 1].main.humidity
-
+            var futureIcon = response.list[((i + 1) * 8) - 1].weather[0].icon
+            var futIconURL = "https://openweathermap.org/img/wn/" + futureIcon + ".png";
 
             $("#futTemp" + i).html(fTempRound + " degrees" + " F")
             $("#futWind" + i).html(futureWind)
             $("#futHumidity" + i).html(futureHumid + " %")
+            $("#futIcon" + i).html("<img src =" + futIconURL + ">")
 
         }
     })
 }
+
 
 // Creates an event listener that returns the value of a city when we click the search button.  
 
