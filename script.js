@@ -7,6 +7,9 @@ var currentTemp = document.querySelector("#temp")
 var currentWind = document.querySelector("#wind")
 var currentHumidity = document.querySelector("#humidity")
 
+var now = dayjs()
+var currentDay = $('#currentDay').text(now)
+
 function currentWeather(city) {
     // Use this URL to get data from the openweather map server. use ajax get method to request data from the server with an HTTP get request. 
 
