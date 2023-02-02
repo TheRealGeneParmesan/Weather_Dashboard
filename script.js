@@ -75,9 +75,6 @@ function futureWeather(cityid) {
     })
 }
 
-
-
-
 // Creates an event listener that returns the value of a city when we click the search button.  
 
 searchButton.addEventListener("click", function () {
@@ -86,24 +83,4 @@ searchButton.addEventListener("click", function () {
     currentWeather(cityName)
     futureWeather(cityName)
 })
-
-
-
-
-    // will have to store the data using local storage 
-
-    // localStorage.setItem(city, searchCity);
-    // localStorage.getItem("lastname");
-
-
-
-
-    // Need a function to display the 5 days forecast for the city
-
-// var forecastURL = "https://api.openweathermap.org/data/2.5/forecast?id=" + city + "&appid=" + APIKey;
-
-
-// for loop through the 5 days? make sure to include icons
-// console.log responses? 
-// also will have to add the past searches to the history
 
