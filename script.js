@@ -6,7 +6,6 @@ var selectedCity = document.querySelector("#selected-city")
 var currentTemp = document.querySelector("#temp")
 var currentWind = document.querySelector("#wind")
 var currentHumidity = document.querySelector("#humidity")
-var pastSearches = []
 
 function currentWeather(city) {
     // Use this URL to get data from the openweather map server. use ajax get method to request data from the server with an HTTP get request. 
@@ -76,6 +75,8 @@ function futureWeather(cityid) {
     })
 }
 
+
+// Still need to create storage. Would do this through maybe local.storage.setitem with the Cityname variable below as well as another variable, maybe a global to store. 
 
 // Creates an event listener that returns the value of a city when we click the search button.  
 
