@@ -1,11 +1,11 @@
 // create global variables to store the elements in the HTML doc as well as a global variable to store the API key. 
-var APIKey = "4b68235b6d97901e4e6eb2b454a04dd0";
+var APIKey = "4b68235b6d97901e4e6eb2b454a04dd0"
 var citySearch = document.querySelector("#search-city")
-var searchButton = document.querySelector("#search-btn");
-var selectedCity = document.querySelector("#selected-city");
-var currentTemp = document.querySelector("#temp");
-var currentWind = document.querySelector("#wind");
-var currentHumidity = document.querySelector("#humidity");
+var searchButton = document.querySelector("#search-btn")
+var selectedCity = document.querySelector("#selected-city")
+var currentTemp = document.querySelector("#temp")
+var currentWind = document.querySelector("#wind")
+var currentHumidity = document.querySelector("#humidity")
 
 function currentWeather(city) {
     // Use this URL to get data from the openweather map server. use ajax get method to request data from the server with an HTTP get request. 
@@ -39,7 +39,7 @@ function currentWeather(city) {
 }
 
 function futureWeather(cityid) {
-    var forecastURL = "api.openweathermap.org/data/2.5/forecast?q=" + cityid + "&appid=" + APIKey
+    var forecastURL = "https://api.openweathermap.org/data/2.5/forecast?q=" + cityid + "&appid=" + APIKey
     console.log(forecastURL)
     $.ajax({
         url: forecastURL,
@@ -47,20 +47,21 @@ function futureWeather(cityid) {
     }).then(function (response) {
         console.log(response)
 
-        for (i = 0; i < 5; i++) {
-            var futureTemp = (response.main.temp - 273.15) * 9 / 5 + 32;
-            var futureWind = response.wind.speed
-            var futureHumid = $(currentHumidity).html(response.main.humidity + "%");
-            var futureWMPH = +((2.23694 * futureWind).toFixed(2));
+        // for (i = 0; i < 5; i++) {
+        //     var futureTemp = (response.main.temp - 273.15) * 9 / 5 + 32;
+        //     var futureWind = response.wind.speed
+        //     var futureHumid = $(currentHumidity).html(response.main.humidity + "%");
+        //     var futureWMPH = +((2.23694 * futureWind).toFixed(2));
 
-            $("#futTemp" + i).html(futureTemp)
-            $("#futWind" + i).html(futureWMPH)
-            $("#futHumidity" + i).html(futureHumid + "%")
+        //     $("#futTemp" + i).html(futureTemp + " degrees" + " F")
+        //     $("#futWind" + i).html(futureWMPH + " mph")
+        //     $("#futHumidity" + i).html(futureHumid + " %")
 
-        }
+    }
 
-    })
+    )
 }
+// }
 
 // Creates an event listener that returns the value of a city when we click the search button.  
 
@@ -68,7 +69,9 @@ searchButton.addEventListener("click", function () {
     var cityName = document.querySelector("#search-city").value
     console.log(cityName)
     currentWeather(cityName)
+    // futureWeather(cityName)
 })
+
 
 
 
