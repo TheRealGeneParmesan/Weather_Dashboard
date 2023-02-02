@@ -35,6 +35,18 @@ function currentWeather(city) {
         var windSpeed = response.wind.speed;
         var windInMiles = +((2.23694 * windSpeed).toFixed(2));
         $(currentWind).html(windInMiles + " MPH");
+
+
+        // Displaying the weather icon.
+
+        var weatherIcon = response.weather[0].icon
+
+        var iconURL = `http://openweathermap.org/img/wn/${weatherIcon}.png`
+
+        $(".weather-icon").attr("src", iconURL)
+
+        response.log(iconURL)
+
     })
 }
 
@@ -47,21 +59,24 @@ function futureWeather(cityid) {
     }).then(function (response) {
         console.log(response)
 
-        // for (i = 0; i < 5; i++) {
-        //     var futureTemp = (response.main.temp - 273.15) * 9 / 5 + 32;
-        //     var futureWind = response.wind.speed
-        //     var futureHumid = $(currentHumidity).html(response.main.humidity + "%");
-        //     var futureWMPH = +((2.23694 * futureWind).toFixed(2));
+        for (i = 0; i < 5; i++) {
+            var futureTemp = response.list[((i + 1) * 8) - 1].main.temp;
+            var futureTempinFar = (((futureTemp - 273.15) * 9 / 5 + 32))
+            var fTempRound = Math.round(futureTempinFar * 100 / 100)
+            var futureWind = response.list[((i + 1) * 8) - 1].wind.speed
+            var futureHumid = response.list[((i + 1) * 8) - 1].main.humidity
 
-        //     $("#futTemp" + i).html(futureTemp + " degrees" + " F")
-        //     $("#futWind" + i).html(futureWMPH + " mph")
-        //     $("#futHumidity" + i).html(futureHumid + " %")
 
-    }
+            $("#futTemp" + i).html(fTempRound + " degrees" + " F")
+            $("#futWind" + i).html(futureWind)
+            $("#futHumidity" + i).html(futureHumid + " %")
 
-    )
+        }
+    })
 }
-// }
+
+
+
 
 // Creates an event listener that returns the value of a city when we click the search button.  
 
@@ -69,7 +84,7 @@ searchButton.addEventListener("click", function () {
     var cityName = document.querySelector("#search-city").value
     console.log(cityName)
     currentWeather(cityName)
-    // futureWeather(cityName)
+    futureWeather(cityName)
 })
 
 
