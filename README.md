@@ -1,5 +1,5 @@
-# Challenge-6
-Weather Dashboard 
+# Weather Dashboard 
+
 In this javascript project, I used openweathermap's API to grab the current weather conditions in cities across the country and display the current temperature, humidity and wind speed.
 
 I also used their API to get the forecast for the next 5 days, showing the future humidity, temperature and wind speed.
