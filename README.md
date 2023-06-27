@@ -1,10 +1,10 @@
 # Weather Dashboard 
 
-In this javascript project, I used openweathermap's API to grab the current weather conditions in cities across the country and display the current temperature, humidity and wind speed.
+In this JS project, I used OpenWeatherMap's API to grab the current weather conditions in cities across the country and display the current temperature, humidity and wind speed.
 
 I also used their API to get the forecast for the next 5 days, showing the future humidity, temperature and wind speed.
 
-I imported the dayjs library to show the current day. 
+I imported the DayJs library to show the current day. 
 
 To elaborate on the above point, if I type a city into my search bar, then it will pull the weather conditions for the city and an icon will display to match the weather accordingly.
 
